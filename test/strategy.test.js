@@ -18,7 +18,7 @@ describe('Strategy', function() {
   it('should throw if constructed without a verify callback', function() {
     expect(function() {
       var s = new Strategy();
-    }).to.throw(TypeError, 'Web3Strategy requires a verify callback');
+    }).to.throw(TypeError, 'LitProtocolStrategy requires a verify callback');
   });
   
 });

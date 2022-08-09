@@ -38,7 +38,7 @@ The strategy requires a `verify` callback, which accepts these
 credentials and calls `done` providing a user.
 
 ```js
-passport.use(new Web3Strategy(
+passport.use(new LitProtocolStrategy(
   function(address, message, signed, done) {
     User.findOne({ address: address }, function (err, user) {
       if (err) { return done(err); }
@@ -52,7 +52,7 @@ passport.use(new Web3Strategy(
 
 ##### Available Options
 
-This strategy takes an optional options hash before the function, e.g. `new Web3Strategy({/* options */, callback})`.
+This strategy takes an optional options hash before the function, e.g. `new LitProtocolStrategy({/* options */, callback})`.
 
 The available options are:
 
@@ -64,13 +64,13 @@ Both fields define the name of the properties in the POST body that are sent to 
 
 #### Parameters
 
-By default, `Web3Strategy` expects to find credentials in parameters
+By default, `LitProtocolStrategy` expects to find credentials in parameters
 named address, message, and signed. If your site prefers to name these fields
 differently, options are available to change the defaults. I don't even
 know why I am supporting this but I suppose if you're too lazy or unable to 
 change the existing form that you have, then lucky you.
 
-    passport.use(new Web3Strategy({
+    passport.use(new LitProtocolStrategy({
         addressField: 'email',
         messageField: 'passwd',
         signedField: 'pineapples',
@@ -88,7 +88,7 @@ The verify callback can be supplied with the `request` object by setting
 the `passReqToCallback` option to true, and changing callback arguments
 accordingly.
 
-    passport.use(new Web3Strategy({
+    passport.use(new LitProtocolStrategy({
         addressField: 'email',
         messageField: 'passwd',
         passReqToCallback: true,
